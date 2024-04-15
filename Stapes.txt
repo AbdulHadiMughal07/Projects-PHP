@@ -10,16 +10,16 @@ Create Table = books = 7 col 1) id = INT 2) BookName = VAR 3) Description = VAR
 Create Table = Category = Col 3 1) id = INT 2) CategoryName = VAR 
 3) CategoryImage = VAR
 Create Table = users = 1) id = INT 2) username = VAR 
-3) password = VAR 4) Roled = INT
+3) password = VAR 4) Roled_FK = INT
 
 ---------NEXT STEP---------
 
 ---------SQL QUERYS---------
 1) alter table Authors add primary key (id);
-1) alter table books primary key (id);
-1) alter table category add primary key (id);
-1) alter table role add primary key (id);
-1) alter table users add primary key (id);
+2) alter table books add primary key (id);
+3) alter table category add primary key (id);
+4) alter table role add primary key (id);
+5) alter table users add primary key (id);
 
 
 
@@ -27,9 +27,17 @@ Create Table = users = 1) id = INT 2) username = VAR
 
 ---------SQL QUERYS---------
 
-alter table role modify id int (11) not null AUTO_INCREMENT , AUTO_INCREMENT=2;
-alter table category modify id int (11) not null AUTO_INCREMENT;
-alter table usres modify id int (11) not null AUTO_INCREMENT;
+1)alter table role modify id int (11) not null AUTO_INCREMENT , AUTO_INCREMENT=2;
+2)alter table authors modify id int (11) not null AUTO_INCREMENT;
+3)alter table category modify id int (11) not null AUTO_INCREMENT;
+4)alter table users modify id int (11) not null AUTO_INCREMENT;
 
 ---------NEXT STEP---------
-Back Users Table And Click Relation View = Create Foreign Key
+
+---------FOREGIN KEYS---------
+1)Back Users Table And Click Relation View = Create Foreign Key-
+RoleId_FK --> Connect --> Role Table
+
+2)Back Books Table And Click Relation View = Create Foreign Key-
+AuthId_FK --> Connect --> Authors Table
+CatId_FK --> Connect --> Category Table
