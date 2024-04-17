@@ -3,6 +3,9 @@
 include("header.php");
 include("connection.php");
 
+$sql = "select * from role";
+$result = mysqli_query($conn , $sql);
+
 ?>
 
 <!--**********************************
@@ -34,41 +37,33 @@ include("connection.php");
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-responsive-sm">
+                                    <table class="table table-responsive-sm text-dark">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
+                                                <th>ID</th>
                                                 <th>Name</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
-                                                <th>Price</th>
+                                                <th>Edit</th>
+                                                <th>Dalete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th>1</th>
-                                                <td>Kolor Tea Shirt For Man</td>
-                                                <td><span class="badge badge-primary">Sale</span>
-                                                </td>
-                                                <td>January 22</td>
-                                                <td class="color-primary">$21.56</td>
+                                                <?php 
+                                                
+                                                while($rows = mysqli_fetch_assoc($result)){
+                                                ?>
+
+                                                    <td><?php echo $rows['id'] ?></td>
+                                                    <td><?php echo $rows['role_name'] ?></td>
+                                                    <td><a href="role_update.php?id=<?php echo $rows
+                                                    ['id']?>" class="btn btn-success">Edit</a></td>
+                                                    <td><a href="role_delete.php?id=<?php echo $rows
+                                                    ['id']?>" class="btn btn-danger">Delete</a></td>
+
+
                                             </tr>
-                                            <tr>
-                                                <th>2</th>
-                                                <td>Kolor Tea Shirt For Women</td>
-                                                <td><span class="badge badge-success">Tax</span>
-                                                </td>
-                                                <td>January 30</td>
-                                                <td class="color-success">$55.32</td>
-                                            </tr>
-                                            <tr>
-                                                <th>3</th>
-                                                <td>Blue Backpack For Baby</td>
-                                                <td><span class="badge badge-danger">Extended</span>
-                                                </td>
-                                                <td>January 25</td>
-                                                <td class="color-danger">$14.85</td>
-                                            </tr>
+                                               <?php } ?>
+                                               
                                         </tbody>
                                     </table>
                                 </div>
