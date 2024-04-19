@@ -8,6 +8,7 @@ $result = mysqli_query($conn , $sql);
 
 ?>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!--**********************************
             Content body start
         ***********************************-->
@@ -56,9 +57,9 @@ $result = mysqli_query($conn , $sql);
                                                     <td><?php echo $rows['id'] ?></td>
                                                     <td><?php echo $rows['role_name'] ?></td>
                                                     <td><a href="role_update.php?id=<?php echo $rows
-                                                    ['id']?>" class="btn btn-success">Edit</a></td>
+                                                    ['id']?>"><i class="bi bi-pencil-square"></i>Edit</a></td>
                                                     <td><a href="role_delete.php?id=<?php echo $rows
-                                                    ['id']?>" class="btn btn-danger">Delete</a></td>
+                                                    ['id']?>"><i class="bi bi-trash3-fill"></i>Delete</a></td>
 
 
                                             </tr>

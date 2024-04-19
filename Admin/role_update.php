@@ -66,8 +66,20 @@ $result = mysqli_query($conn , $sql);
 </div>
 
 
-<?php
+    <?php
+        
+        if(isset($_POST['update'])){
+            $role_name = $_POST['role_name'];
 
-include("footer.php")
+            $sql = "update role set role_name = '$role_name' where id = $Id ";
+            $result = mysqli_query($conn , $sql);
 
-?>
+            echo "<script>
+            
+            alert('Role Update Successfully!');
+            window.location.href='role_show.php'
+            </script>";
+        }
+        include("footer.php")
+
+    ?>
