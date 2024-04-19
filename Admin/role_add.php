@@ -1,10 +1,10 @@
 <?php
-
 include("header.php");
 include("connection.php");
 
+$sql = "select * from role";
+$result = mysqli_query($conn , $sql);
 ?>
-
 
 <!--**********************************
             Content body start
@@ -25,53 +25,69 @@ include("connection.php");
                         </ol>
                     </div>
                 </div>
-                
+
+
                 <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Role Add</h4>
+                                <h4 class="card-title">User Form</h4>
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form method="post">
+                                    <form>
+                                    <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <label>Role</label>
+                                                <select id="inputState" class="form-control">
+                                                    <?php
 
+                                                    while ($rows =mysqli_fetch_assoc($result)) {
+                                                    
+                                                        ?>
+                                                    <option value="<?php echo $rows['id']?>"><?php echo $rows['role_name'] ?></option>
+                                                    <?php } ?>
+                                    
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control" name="role_name" placeholder="Enter Your Name">
+                                                <label>User Name</label>
+                                                <input type="text" class="form-control" name="username" placeholder="Enter Your Name">
                                             </div>
+                                            <div class="form-group col-md-12">
+                                                <label>Password</label>
+                                                <input type="password" name="password" class="form-control" placeholder="Enter Your Password">
                                             </div>
-                                            
+                                           
+                        
+                                        </div>
                                         
-                                        
-                                        <button type="submit" name="submit" class="btn btn-primary">Add</button>
+                                    
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-
-
                         </div>
                         </div>
-                        
 
-                        <?php
 
-                        if(isset($_POST['submit'])){
 
-                            $role_name = $_POST['role_name'];
 
-                            $sql = "insert into role (role_name) values
-                            ('$role_name')";
-                            $result = mysqli_query($conn, $sql);
 
-                            echo "<script>
-                            
-                            alert('Your Role Has Been Added!');
-                            window.location.href = 'role_show.php'
-                            
-                            </script>";
-                        }
 
-            include("footer.php")
 
-        ?>
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+include("footer.php");
