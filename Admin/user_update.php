@@ -71,7 +71,7 @@ $result = mysqli_query($conn , $sql);
         if(isset($_POST['update'])){
             $username = $_POST['username'];
 
-            $sql = "update users set username = '$username' where id = $Id ";
+            $sql = "update users set username = '$username' , where id = $Id ";
             $result = mysqli_query($conn , $sql);
 
             echo "<script>
