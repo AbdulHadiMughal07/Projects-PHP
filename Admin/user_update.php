@@ -5,7 +5,7 @@ include("connection.php");
 
 $Id = $_GET["id"];
 $sql = "select * from users where id= $Id";
-$result = mysqli_query($conn , $sql);
+$result = mysqli_query($conn, $sql);
 
 
 ?>
@@ -43,13 +43,13 @@ $result = mysqli_query($conn , $sql);
                             <div class="form-group col-md-12">
                                 <label>User Name</label>
                                 <?php
-                                
-                                
-                                while ($rows = mysqli_fetch_assoc($result)){
+
+
+                                while ($rows = mysqli_fetch_assoc($result)) {
                                 ?>
 
-                                <input type="text" class="form-control" name="username" value="<?php echo $rows['username'] ?>" placeholder="Enter Your Role">
-                           <?php } ?>
+                                    <input type="text" class="form-control" name="username" value="<?php echo $rows['username'] ?>" placeholder="Enter Your Role">
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -66,20 +66,20 @@ $result = mysqli_query($conn , $sql);
 </div>
 
 
-    <?php
-        
-        if(isset($_POST['update'])){
-            $username = $_POST['username'];
+<?php
 
-            $sql = "update users set username = '$username' , where id = $Id ";
-            $result = mysqli_query($conn , $sql);
+if (isset($_POST['update'])) {
+    $username = $_POST['username'];
 
-            echo "<script>
+    $sql = "update users set username = '$username' , where id = $Id ";
+    $result = mysqli_query($conn, $sql);
+
+    echo "<script>
             
             alert('Role Update Successfully!');
             window.location.href='role_show.php'
             </script>";
-        }
-        include("footer.php")
+}
+include("footer.php")
 
-    ?>
+?>
