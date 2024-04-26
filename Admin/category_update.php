@@ -54,7 +54,7 @@ $rows = mysqli_fetch_assoc($result);
                                             
                                         
                                         
-                                        <button type="submit" name="update" class="btn btn-primary">Submit</button>
+                                        <button type="submit" name="update" class="btn btn-primary">Update Category</button>
                                     </form>
                                 </div>
                             </div>
@@ -69,11 +69,22 @@ $rows = mysqli_fetch_assoc($result);
 
 <?php
 
-if (isset($_POST['update'])) {
+if (isset($_POST['update'])){
     $categoryname = $_POST['categoryname'];
+    $categoryimage = $_FILES['image']['name'];
 
-    $sql = "update category set categoryname = '$categoryname' where id = $Id ";
+    $sql = "update category set categoryname = '$categoryname' , CategoryImage = '$categoryimage' where id = $Id";
     $result = mysqli_query($conn, $sql);
+
+    if (isset($_FILES)) {
+        
+        $file_name = $_FILES['image']['name'];
+        $file_type = $_FILES['image']['type'];
+        $file_size = $_FILES['image']['size'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+
+    move_uploaded_file($file_tmp , "images/category/" .$file_name);
+}
 
     echo "<script>
             

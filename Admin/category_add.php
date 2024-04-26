@@ -81,6 +81,7 @@
 echo 
                 "<script>
                 alert('Your Category has been Added');
+                window.location.href = 'category_show.php';
                 </script>";
 }
     include("footer.php");
