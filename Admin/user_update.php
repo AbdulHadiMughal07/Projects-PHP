@@ -47,8 +47,8 @@ $result = mysqli_query($conn, $sql);
 
                                 while ($rows = mysqli_fetch_assoc($result)) {
                                 ?>
+                                    <input type="text" class="form-control" name="username" value="<?php echo $rows['username'] ?>" placeholder="Enter Your Username">
 
-                                    <input type="text" class="form-control" name="username" value="<?php echo $rows['username'] ?>" placeholder="Enter Your Role">
                                 <?php } ?>
                             </div>
                         </div>
@@ -71,15 +71,15 @@ $result = mysqli_query($conn, $sql);
 if (isset($_POST['update'])) {
     $username = $_POST['username'];
 
-    $sql = "update users set username = '$username' , where id = $Id ";
+    $sql = "update users set username = '$username' where id = $Id ";
     $result = mysqli_query($conn, $sql);
 
     echo "<script>
             
-            alert('Role Update Successfully!');
-            window.location.href='role_show.php'
+            alert('User Update Successfully!');
+            window.location.href='user_show.php'
             </script>";
 }
-include("footer.php")
+include("footer.php");
 
 ?>

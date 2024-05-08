@@ -38,7 +38,7 @@ $result = mysqli_query($conn , $sql);
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-responsive-sm text-dark">
+                                    <table class="table table-responsive-sm">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -57,9 +57,9 @@ $result = mysqli_query($conn , $sql);
                                                     <td><?php echo $rows['id'] ?></td>
                                                     <td><?php echo $rows['role_name'] ?></td>
                                                     <td><a href="role_update.php?id=<?php echo $rows
-                                                    ['id']?>"><i class="bi bi-pencil-square"></i>Edit</a></td>
+                                                    ['id']?>"class="text-primary"><i class="bi bi-pencil-square"></i>Edit</a></td>
                                                     <td><a href="role_delete.php?id=<?php echo $rows
-                                                    ['id']?>"><i class="bi bi-trash3-fill"></i>Delete</a></td>
+                                                    ['id']?>"class="text-danger"><i class="bi bi-trash3-fill"></i>Delete</a></td>
 
 
                                             </tr>
@@ -80,6 +80,12 @@ $result = mysqli_query($conn , $sql);
 
 
 <?php
+
+// echo "<script>
+            
+// alert('Role Update Successfully!');
+// window.location.href='role_show.php'
+// </script>";
 
 include("footer.php")
 

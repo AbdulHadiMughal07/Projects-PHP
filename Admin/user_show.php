@@ -36,7 +36,7 @@ $result = mysqli_query($conn , $sql);
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-responsive-sm">
+                                    <table class="table table-responsive-sm text-dark">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -47,7 +47,6 @@ $result = mysqli_query($conn , $sql);
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <>
                                                 <?php
                                                     while($rows = mysqli_fetch_assoc($result)){
                                                         ?>
@@ -56,9 +55,9 @@ $result = mysqli_query($conn , $sql);
                                                         <th><?php echo $rows['username'] ?></th>
                                                         <th><?php echo $rows['role_name'] ?></th>
                                                         <td><a href="user_update.php?id=<?php echo $rows
-                                                    ['id']?>"><i class="bi bi-pencil-square"></i>Edit</a></td>
+                                                    ['id']?>"class="text-primary"><i class="bi bi-pencil-square"></i>Edit</a></td>
                                                     <td><a href="user_delete.php?id=<?php echo $rows
-                                                    ['id']?>"><i class="bi bi-trash3-fill"></i>Delete</a></td>
+                                                    ['id']?>"class="text-danger"><i class="bi bi-trash3-fill"></i>Delete</a></td>
                                                     </tr>
                                                     <?php } ?>
                                             
