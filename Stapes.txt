@@ -41,3 +41,9 @@ RoleId_FK --> Connect --> Role Table
 2)Back Books Table And Click Relation View = Create Foreign Key-
 AuthId_FK --> Connect --> Authors Table
 CatId_FK --> Connect --> Category Table
+
+
+
+link
+
+http://localhost:82/phpmyadmin/index.php?route=/database/sql&db=bookstoref2
