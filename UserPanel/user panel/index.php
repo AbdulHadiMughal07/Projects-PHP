@@ -46,22 +46,35 @@
 
 							<br>
 
-							<h2 class="h2">Featured Products</h2>
+							<h2 class="h2">Available Category</h2>
 
 							<!-- Products -->
 							<section class="tiles">
-								<article class="style1">
-									<span class="image">
-										<img src="images/product-1-720x480.jpg" alt="" />
-									</span>
-									<a href="product-details.html">
-										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
-										
-										<p><del>$19.00</del> <strong>$19.00</strong></p>
+								
+								<?php
+										$sql = "select * from category order by id asc limit 3";
+										$result = mysqli_query($conn , $sql);
+										while ($rows = mysqli_fetch_assoc($result)){
+											?>
+											<article class="style1">
+											<span class="image">
+											<?php
+												echo "<img src =\"../../Admin/images/category{$rows['$CategoryImage']}\"
+												height=300px width=300px>"
+											?>
+								
+											</span>
+												<a href="product-details.html">
+												<h2><?php echo $rows['$CategoryName']?></h2>
+								
+												<p><del>$19.00</del> <strong>$19.00</strong></p>
 
-										<p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-									</a>
-								</article>
+												<p>Vestibulum id est eu felis vulputate hendrerit uspendisse 				dapibus turpis in </p>
+											</a>
+										</article>
+
+										<?php } ?>
+									?>
 								<article class="style2">
 									<span class="image">
 										<img src="images/product-2-720x480.jpg" alt="" />

@@ -58,7 +58,7 @@ include("connection.php");
 
                                         <option value="<?php echo $rows['id'] ?>"><?php echo $rows['author_name'] ?></option>
 
-                                    <?php  } ?>
+                                    <?php } ?>
 
                                 </select>
                             </div>
@@ -115,18 +115,18 @@ if (isset($_POST['submit'])) {
         $file_size = $_FILES['image']['size'];
         $file_tmp = $_FILES['image']['tmp_name'];
 
-        move_uploaded_file($file_tmp, "images/books/" . $file_name);
+        move_uploaded_file($file_tmp, "images/books/" .$file_name);
     }
 
-
+    
     echo
     "<script>
-                    alert('Your Books Record has been Added');
-                    </script>";
+    alert('Your Books Record has been Added');
+    </script>";
+    
 }
-
-
-
+                    
+                    
 include("footer.php");
 
 ?>
