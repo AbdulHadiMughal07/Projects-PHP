@@ -3,8 +3,8 @@
     include("header.php");
     include("connection.php");
 
-    $sql="select books .*,authors.author_name,category.CategoryName from books inner join authors on books.AuthId_FK = authors.id inner join category on books.CatId_FK = category.id";
-    $result=mysqli_query($conn,$sql);
+    $sql = "select books .* ,authors.author_name, category.categoryname from books inner join authors on books .authid_fk = authors. id inner join category on books .catid_fk = category.id";
+$result = mysqli_query($conn , $sql);
 ?>
 
 
